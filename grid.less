@@ -1,0 +1,19 @@
+@GRID_columns: 6;  // number of columns
+@GRID_margin: 2.4; // gutter
+@GRID_bp: 31.25em; // break-point
+
+.grid(@spans) {
+  @space: 100% - (@GRID_columns - 1) * @GRID_margin;
+  @col: @space / @GRID_columns;
+  width: (@spans * @col) + (@spans - 1) * @GRID_margin;
+  display: block;
+	float: left;
+  margin: 1% 0 1% @GRID_margin * 1%;
+  
+  &:first-child { margin-left: 0; }
+  
+  @media only screen and (max-width: @GRID_bp) {
+    width: 100%;
+    margin: 1% 0 1% 0%;
+  }
+}
