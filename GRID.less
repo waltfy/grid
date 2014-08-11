@@ -3,10 +3,10 @@
   @col: @space / @GRID_columns;
   width: (@spans * @col) + (@spans - 1) * @GRID_margin;
   display: block;
-	float: left;
+  float: left;
   margin: 1% 0 1% @GRID_margin * 1%;
   
-  &:first-child { margin-left: 0; }
+  & div:first-of-type { margin-left: 0; } // if nesting components make sure the first div in the sctructure is the leftmost column
   
   @media only screen and (max-width: @GRID_bp) {
     width: 100%;
