@@ -1,15 +1,18 @@
-.grid(@spans) {
-  @space: 100% - (@GRID_columns - 1) * @GRID_margin;
-  @col: @space / @GRID_columns;
-  width: (@spans * @col) + (@spans - 1) * @GRID_margin;
+.grid(@spans: 12, @cols: 12, @margin: 1.6, @bp: 500px) {
+  
+  @space: 100% - (@cols - 1) * @margin;
+  @col: @space / @cols;
+  
+  width: 100%;
+  margin: 1% 0 1% 0%;
+  
   display: block;
   float: left;
-  margin: 1% 0 1% @GRID_margin * 1%;
   
-  & div:first-of-type { margin-left: 0; } // if nesting components make sure the first div in the sctructure is the leftmost column
+  &:first-child { margin-left: 0; }
   
-  @media only screen and (min-width: @GRID_bp) {
-    width: 100%;
-    margin: 1% 0 1% 0%;
+  @media only screen and (min-width: @bp) {    
+    width: (@spans * @col) + (@spans - 1) * @margin;
+    margin: 1% 0 1% @margin * 1%;
   }
 }
